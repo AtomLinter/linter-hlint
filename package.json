@@ -1,0 +1,16 @@
+{
+"name": "linter-hlint",
+"linter-package": true,
+"activationEvents": [],
+"main": "./lib/init",
+"version": "0.1.0",
+"description": "Lint your haskell code with hlint",
+"repository": "https://github.com/mdgriffith/linter-hlint",
+"license": "MIT",
+"engines": {
+"atom": ">0.50.0"
+},
+"dependencies": {
+  "xregexp": "2.0.0"
+}
+}
