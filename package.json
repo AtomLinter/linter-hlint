@@ -5,7 +5,7 @@
   "main": "./lib/init",
   "version": "0.2.1",
   "description": "Lint haskell code with hlint",
-  "repository": "https://github.com/mdgriffith/linter-hlint",
+  "repository": "https://github.com/AtomLinter/linter-hlint",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
