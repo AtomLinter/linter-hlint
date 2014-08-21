@@ -1,6 +1,5 @@
 module.exports =
   configDefaults:
-    hlintExecutablePath: "/Users/matthewgriffith/Library/Haskell/bin/"
+    hlintExecutablePath: ""
   activate: ->
-    console.log 'Linter-HLint: package loaded,
-                 ready to get initialized by AtomLinter.'
+    console.log 'activate linter-hlint'
