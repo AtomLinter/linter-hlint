@@ -5,9 +5,7 @@ Linter = require "#{linterPath}/lib/linter"
 
 
 class LinterHLint extends Linter
-  @enabled = false # false until executable checked
   @syntax: 'source.haskell' # fits all *.hs-files
-  cmd: ['hlint']
 
   linterName: 'hlint'
 
