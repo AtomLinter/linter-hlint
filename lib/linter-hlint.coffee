@@ -9,7 +9,7 @@ class LinterHLint extends Linter
 
   linterName: 'hlint'
 
-  regex: '^[^:]*:(?<line>\\d+):(?<col>\\d+):\\s+\
+  regex: '.+?:(?<line>\\d+):(?<col>\\d+):\\s+\
           ((?<error>Error)|(?<warning>Warning)):\\s*\
           (?<message>.*)'
   regexFlags: 'gms'
