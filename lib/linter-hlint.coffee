@@ -24,7 +24,7 @@ class LinterHLint extends Linter
       return []
     messages = []
     regex = XRegExp @regex, @regexFlags
-    for msg in message.split(/\n\n/)
+    for msg in message.split(/\r?\n\r?\n/)
       XRegExp.forEach msg, regex, (match, i) =>
         messages.push(@createMessage(match))
       , this
