@@ -25,7 +25,10 @@ class LinterHLint extends Linter
     messages = []
     regex = XRegExp @regex, @regexFlags
     for msg in message.split(/\r?\n\r?\n/)
+      lastLine = @editor.getLineCount()
       XRegExp.forEach msg, regex, (match, i) =>
+        if parseInt(match.line) >= lastLine
+          match.line = lastLine
         messages.push(@createMessage(match))
       , this
     callback messages
