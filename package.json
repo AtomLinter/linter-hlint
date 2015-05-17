@@ -3,7 +3,7 @@
   "linter-package": true,
   "activationCommands": [],
   "main": "./lib/init",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Lint haskell code with hlint",
   "repository": "https://github.com/AtomLinter/linter-hlint",
   "license": "MIT",
