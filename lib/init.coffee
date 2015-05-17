@@ -1,5 +1,7 @@
 module.exports =
-  configDefaults:
-    hlintExecutablePath: "hlint"
+  config:
+    hlintExecutablePath: 
+      type: 'string'
+      default: 'hlint'
   activate: ->
     console.log 'activate linter-hlint'
