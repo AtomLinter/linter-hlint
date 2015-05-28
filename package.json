@@ -1,7 +1,6 @@
 {
   "name": "linter-hlint",
   "linter-package": true,
-  "activationCommands": [],
   "main": "./lib/init",
   "version": "0.3.5",
   "description": "Lint haskell code with hlint",
