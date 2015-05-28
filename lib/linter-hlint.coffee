@@ -16,8 +16,12 @@ class LinterHLint extends Linter
 
   constructor: (editor) ->
     super(editor)
-    atom.config.observe 'linter-hlint.hlintExecutablePath', =>
+    @configSubscription = atom.config.observe 'linter-hlint.hlintExecutablePath', =>
       @executablePath = atom.config.get 'linter-hlint.hlintExecutablePath'
+
+  destroy: ->
+    super
+    @configSubscription.dispose()
 
   processMessage: (message, callback) ->
     if message == "No Suggestions"
