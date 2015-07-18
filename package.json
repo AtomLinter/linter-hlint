@@ -1,15 +1,19 @@
 {
   "name": "linter-hlint",
-  "linter-package": true,
-  "main": "./lib/init",
+  "main": "./lib/init.coffee",
   "version": "0.3.6",
   "description": "Lint haskell code with hlint",
   "repository": "https://github.com/AtomLinter/linter-hlint",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=1.0.0"
   },
-  "dependencies": {
-    "xregexp": "2.0.0"
+  "dependencies": {},
+  "providedServices": {
+  "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
   }
 }
