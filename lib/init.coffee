@@ -20,7 +20,7 @@ module.exports =
     provider =
       grammarScopes: ['source.haskell']
       scope: 'file' # or 'project'
-      lintOnFly: false # must be false for scope: 'project'
+      lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor) =>
         return new Promise (resolve, reject) =>
           filePath = textEditor.getPath()
