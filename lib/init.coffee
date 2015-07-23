@@ -38,7 +38,7 @@ module.exports =
               # return resolve [] if info.passed
               resolve info.map (error) ->
                 type: error.severity.toLowerCase(),
-                text: [error.hint, "Found: #{error.from}", "Why Not: #{ error.to}"].join "\n"
+                html: [error.hint, "#{error.from} ==>", "#{ error.to}"].join "<br/>"
                 filePath: error.file or filePath,
                 range: [
                   # Atom expects ranges to be 0-based
