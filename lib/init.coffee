@@ -27,7 +27,7 @@ module.exports =
           json = []
           process = new BufferedProcess
             command: @executablePath
-            args: [filePath, '--json']
+            args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
             stdout: (data) ->
               json.push data
             exit: (code) ->
