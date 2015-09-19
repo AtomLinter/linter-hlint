@@ -27,7 +27,8 @@ module.exports =
           json = []
           process = new BufferedProcess
             command: @executablePath
-            args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
+            # args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
+            args: [filePath, '--json']
             stdout: (data) ->
               json.push data
             exit: (code) ->
@@ -39,6 +40,7 @@ module.exports =
               resolve info.map (error) ->
                 type: error.severity.toLowerCase(),
                 text: [error.hint, "#{error.from} ==>", "#{ error.to}"].join "\n"
+                # html: [error.hint, "#{error.from} ==>", "#{ error.to}"].join "<br/>"
                 filePath: error.file or filePath,
                 range: [
                   # Atom expects ranges to be 0-based
