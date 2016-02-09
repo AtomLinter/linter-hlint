@@ -18,7 +18,7 @@ module.exports =
 
   provideLinter: ->
     provider =
-      grammarScopes: ['source.haskell']
+      grammarScopes: ['source.haskell', 'meta.embedded.haskell', 'text.tex.latex.haskell']
       scope: 'file' # or 'project'
       lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor) =>
