@@ -1,7 +1,7 @@
 {
   "name": "linter-hlint",
   "main": "./lib/init.coffee",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Lint haskell code with hlint",
   "repository": "https://github.com/AtomLinter/linter-hlint",
   "license": "MIT",
