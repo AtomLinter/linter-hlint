@@ -18,7 +18,7 @@ module.exports =
 
   provideLinter: ->
     provider =
-      grammarScopes: ['source.haskell', 'meta.embedded.haskell', 'text.tex.latex.haskell']
+      grammarScopes: ['source.haskell', 'text.tex.latex.haskell']
       scope: 'file' # or 'project'
       lintOnFly: true # must be false for scope: 'project'
       lint: (textEditor) =>
@@ -27,8 +27,8 @@ module.exports =
           json = []
           process = new BufferedProcess
             command: @executablePath
-            # args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
-            args: [filePath, '--json']
+            args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
+            # args: [filePath, '--json']
             stdout: (data) ->
               json.push data
             exit: (code) ->
