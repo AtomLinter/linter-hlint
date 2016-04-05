@@ -6,12 +6,21 @@ module.exports =
       title: 'The hlint executable path.'
       type: 'string'
       default: 'hlint'
+    hlintHints:
+      title: 'List of hints to use'
+      type: 'array'
+      default: ['Default', 'Dollar', 'Generalise']
+      items:
+        type: 'string'
 
   activate: ->
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.config.observe 'linter-hlint.hlintExecutablePath',
       (executablePath) =>
         @executablePath = executablePath
+    @subscriptions.add atom.config.observe 'linter-hlint.hlintHints',
+      (hlintHints) =>
+        @hlintHints = hlintHints
 
   deactivate: ->
     @subscriptions.dispose()
@@ -25,9 +34,11 @@ module.exports =
         return new Promise (resolve, reject) =>
           filePath = textEditor.getPath()
           json = []
+          hints = (('--hint=' + h) for h in @hlintHints)
           process = new BufferedProcess
             command: @executablePath
-            args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
+            args: [filePath, '--json'].concat hints 
+            # args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
             # args: [filePath, '--json']
             stdout: (data) ->
               json.push data
