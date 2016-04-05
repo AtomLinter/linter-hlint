@@ -38,8 +38,6 @@ module.exports =
           process = new BufferedProcess
             command: @executablePath
             args: [filePath, '--json'].concat hints 
-            # args: [filePath, '--json', '--hint=Default', '--hint=Dollar', '--hint=Generalise']
-            # args: [filePath, '--json']
             stdout: (data) ->
               json.push data
             exit: (code) ->
