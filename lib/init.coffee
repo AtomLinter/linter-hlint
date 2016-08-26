@@ -37,7 +37,7 @@ module.exports =
           hints = (('--hint=' + h) for h in @hlintHints)
           process = new BufferedProcess
             command: @executablePath
-            args: [filePath, '--json'].concat hints 
+            args: [filePath, '--json'].concat hints
             stdout: (data) ->
               json.push data
             exit: (code) ->

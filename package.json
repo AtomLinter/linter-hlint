@@ -2,11 +2,20 @@
   "name": "linter-hlint",
   "main": "./lib/init.coffee",
   "version": "0.4.3",
-  "description": "Lint haskell code with hlint",
+  "private": true,
+  "description": "Lint Haskell code with hlint",
   "repository": "https://github.com/AtomLinter/linter-hlint",
   "license": "MIT",
+  "keywords": [
+    "linter",
+    "hlint"
+  ],
   "engines": {
-    "atom": ">=1.0.0"
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-hlint.git"
   },
   "dependencies": {},
   "providedServices": {
