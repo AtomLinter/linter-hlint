@@ -12,7 +12,7 @@ module.exports =
       default: ['Default', 'Dollar', 'Generalise']
       items:
         type: 'string'
-    hlintIgnoreReduceDuplication:
+    ignoreReduceDuplication:
       title: 'Ignore "Reduce Duplication" messages'
       type: 'boolean'
       default: false
@@ -25,9 +25,9 @@ module.exports =
     @subscriptions.add atom.config.observe 'linter-hlint.hlintHints',
       (hlintHints) =>
         @hlintHints = hlintHints
-    @subscriptions.add atom.config.observe 'linter-hlint.hlintIgnoreReduceDuplication',
-      (hlintIgnoreReduceDuplication) =>
-        @hlintIgnoreReduceDuplication = hlintIgnoreReduceDuplication
+    @subscriptions.add atom.config.observe 'linter-hlint.ignoreReduceDuplication',
+      (ignoreReduceDuplication) =>
+        @ignoreReduceDuplication = ignoreReduceDuplication
 
   deactivate: ->
     @subscriptions.dispose()
@@ -43,7 +43,7 @@ module.exports =
           json = []
           hints = (('--hint=' + h) for h in @hlintHints)
           optArgs = hints
-          if (@hlintIgnoreReduceDuplication)
+          if (@ignoreReduceDuplication)
             optArgs.push('--ignore=Reduce duplication')
           process = new BufferedProcess
             command: @executablePath
