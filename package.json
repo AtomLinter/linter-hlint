@@ -1,28 +1,75 @@
 {
   "name": "linter-hlint",
-  "main": "./lib/init.coffee",
+  "main": "./lib/init.js",
   "version": "0.5.0",
   "private": true,
   "description": "Lint Haskell code with hlint",
-  "repository": "https://github.com/AtomLinter/linter-hlint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-hlint.git"
+  },
   "license": "MIT",
   "keywords": [
     "linter",
     "hlint"
   ],
+  "configSchema": {
+    "hlintExecutablePath": {
+      "title": "The hlint executable path.",
+      "type": "string",
+      "default": "hlint"
+    },
+    "hlintHints": {
+      "title": "List of hints to use",
+      "type": "array",
+      "default": [
+        "Default",
+        "Dollar",
+        "Generalise"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignoreReduceDuplication": {
+      "title": "Ignore \"Reduce Duplication\" messages",
+      "type": "boolean",
+      "default": false
+    }
+  },
   "engines": {
-    "atom": ">=1.0.0 <2.0.0"
+    "atom": ">=1.4.0 <2.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AtomLinter/linter-hlint.git"
-  },
-  "dependencies": {},
   "providedServices": {
     "linter": {
       "versions": {
         "1.0.0": "provideLinter"
       }
     }
+  },
+  "scripts": {
+    "test": "apm test",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off"
+    },
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    }
+  },
+  "dependencies": {
+    "atom-linter": "^9.0.0"
   }
 }
