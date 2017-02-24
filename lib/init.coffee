@@ -12,6 +12,10 @@ module.exports =
       default: ['Default', 'Dollar', 'Generalise']
       items:
         type: 'string'
+    ignoreReduceDuplication:
+      title: 'Ignore "Reduce Duplication" messages'
+      type: 'boolean'
+      default: false
 
   activate: ->
     @subscriptions = new CompositeDisposable
@@ -21,6 +25,9 @@ module.exports =
     @subscriptions.add atom.config.observe 'linter-hlint.hlintHints',
       (hlintHints) =>
         @hlintHints = hlintHints
+    @subscriptions.add atom.config.observe 'linter-hlint.ignoreReduceDuplication',
+      (ignoreReduceDuplication) =>
+        @ignoreReduceDuplication = ignoreReduceDuplication
 
   deactivate: ->
     @subscriptions.dispose()
@@ -35,9 +42,12 @@ module.exports =
           filePath = textEditor.getPath()
           json = []
           hints = (('--hint=' + h) for h in @hlintHints)
+          optArgs = hints
+          if (@ignoreReduceDuplication)
+            optArgs.push('--ignore=Reduce duplication')
           process = new BufferedProcess
             command: @executablePath
-            args: [filePath, '--json'].concat hints
+            args: [filePath, '--json'].concat optArgs
             stdout: (data) ->
               json.push data
             exit: (code) ->
