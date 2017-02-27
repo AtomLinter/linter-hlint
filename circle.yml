@@ -15,5 +15,6 @@ dependencies:
 machine:
   environment:
     PATH: "$HOME/.cabal/bin:$PATH"
+    APM_TEST_PACKAGES: "language-haskell"
   ghc:
     version: 7.10.2
