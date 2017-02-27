@@ -4,6 +4,7 @@ import * as path from 'path';
 
 const concatPath = path.join(__dirname, 'fixtures', 'concat.hs');
 const validPath = path.join(__dirname, 'fixtures', 'valid.hs');
+const configPath = path.join(__dirname, 'fixtures', 'config', 'concat.hs');
 
 describe('The hlint provider for Linter', () => {
   const lint = require('../lib/init.js').provideLinter().lint;
@@ -18,7 +19,7 @@ describe('The hlint provider for Linter', () => {
     );
   });
 
-  it('bundles and works with stylelint-config-standard', () => {
+  it('works with default lints', () => {
     waitsForPromise(() =>
       atom.workspace.open(concatPath).then(editor => lint(editor)).then((messages) => {
         expect(messages[0].type).toBe('Warning');
@@ -42,6 +43,22 @@ describe('The hlint provider for Linter', () => {
     waitsForPromise(() =>
       atom.workspace.open(validPath).then(editor => lint(editor)).then((messages) => {
         expect(messages.length).toBe(0);
+      }),
+    );
+  });
+
+  it('works with configuration files', () => {
+    waitsForPromise(() =>
+      atom.workspace.open(configPath).then(editor => lint(editor)).then((messages) => {
+        // The config should make it not know about the fmap suggestion
+        expect(messages.length).toBe(1);
+
+        expect(messages[0].type).toBe('Warning');
+        expect(messages[0].severity).toBe('warning');
+        expect(messages[0].text).toBe('Use concatMap: concat (map op xs) ==> concatMap op xs');
+        expect(messages[0].html).not.toBeDefined();
+        expect(messages[0].filePath).toBe(configPath);
+        expect(messages[0].range).toEqual([[0, 9], [0, 27]]);
       }),
     );
   });
