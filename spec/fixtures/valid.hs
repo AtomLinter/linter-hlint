@@ -1,0 +1,1 @@
+foo xs =<< op xs
