@@ -22,15 +22,15 @@ describe('The hlint provider for Linter', () => {
     waitsForPromise(() =>
       atom.workspace.open(concatPath).then(editor => lint(editor)).then((messages) => {
         expect(messages[0].type).toBe('Warning');
-        expect(messages[1].severity).toBe('warning');
+        expect(messages[0].severity).toBe('warning');
         expect(messages[0].text).toBe('Use concatMap: concat (map op xs) ==> concatMap op xs');
         expect(messages[0].html).not.toBeDefined();
         expect(messages[0].filePath).toBe(concatPath);
-        expect(messages[0].range).toEqual([[0, 9], [0, 28]]);
+        expect(messages[0].range).toEqual([[0, 9], [0, 27]]);
 
         expect(messages[1].type).toBe('Info');
         expect(messages[1].severity).toBe('info');
-        expect(messages[1].text).toBe('Use fmap');
+        expect(messages[1].text).toBe('Use fmap: map ==> fmap');
         expect(messages[1].html).not.toBeDefined();
         expect(messages[1].filePath).toBe(concatPath);
         expect(messages[1].range).toEqual([[0, 17], [0, 20]]);
