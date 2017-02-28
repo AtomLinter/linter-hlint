@@ -1,5 +1,20 @@
 # Change Log
 
+## [v1.0.0](https://github.com/AtomLinter/linter-hlint/tree/v1.0.0) (2017-02-27)
+[Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v0.5.0...v1.0.0)
+
+**Implemented enhancements:**
+
+- Implement specs [\#17](https://github.com/AtomLinter/linter-hlint/issues/17)
+- Doesn't pickup HLint.hs file at toplevel of projects!  [\#16](https://github.com/AtomLinter/linter-hlint/issues/16)
+- ES2017 rewrite [\#23](https://github.com/AtomLinter/linter-hlint/pull/23) ([Arcanemagus](https://github.com/Arcanemagus))
+- Option to ignore "Reduce duplication" messages [\#22](https://github.com/AtomLinter/linter-hlint/pull/22) ([wapxmas](https://github.com/wapxmas))
+
+**Fixed bugs:**
+
+- gutter marks does not appear [\#20](https://github.com/AtomLinter/linter-hlint/issues/20)
+- ES2017 rewrite [\#23](https://github.com/AtomLinter/linter-hlint/pull/23) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v0.5.0](https://github.com/AtomLinter/linter-hlint/tree/v0.5.0) (2016-08-26)
 [Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v0.4.3...v0.5.0)
 
