@@ -1,7 +1,7 @@
 {
   "name": "linter-hlint",
   "main": "./lib/init.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Lint Haskell code with hlint",
   "repository": {

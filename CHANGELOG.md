@@ -1,6 +1,14 @@
 # Change Log
 
-## [v1.0.0](https://github.com/AtomLinter/linter-hlint/tree/v1.0.0) (2017-02-27)
+## [v1.0.1](https://github.com/AtomLinter/linter-hlint/tree/v1.0.1) (2017-03-15)
+[Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v1.0.0...v1.0.1)
+
+**Implemented enhancements:**
+
+- Add Provider name for Linter v2 [\#24](https://github.com/AtomLinter/linter-hlint/issues/24)
+- Add a linter name [\#25](https://github.com/AtomLinter/linter-hlint/pull/25) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v1.0.0](https://github.com/AtomLinter/linter-hlint/tree/v1.0.0) (2017-02-28)
 [Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v0.5.0...v1.0.0)
 
 **Implemented enhancements:**
