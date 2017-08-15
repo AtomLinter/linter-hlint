@@ -19,18 +19,6 @@
       "type": "string",
       "default": "hlint"
     },
-    "hlintHints": {
-      "title": "List of hints to use",
-      "type": "array",
-      "default": [
-        "Default",
-        "Dollar",
-        "Generalise"
-      ],
-      "items": {
-        "type": "string"
-      }
-    },
     "ignoreReduceDuplication": {
       "title": "Ignore \"Reduce Duplication\" messages",
       "type": "boolean",
