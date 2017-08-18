@@ -1,5 +1,18 @@
 # Change Log
 
+## [v2.0.0](https://github.com/AtomLinter/linter-hlint/tree/v2.0.0) (2017-08-18)
+[Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v1.0.1...v2.0.0)
+
+**Implemented enhancements:**
+
+- Update eslint to version 4.3.0 🚀 [\#29](https://github.com/AtomLinter/linter-hlint/pull/29) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update atom-linter to version 10.0.0 🚀 [\#26](https://github.com/AtomLinter/linter-hlint/pull/26) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Incompatibility with \>=hlint-2.0 [\#30](https://github.com/AtomLinter/linter-hlint/issues/30)
+- hlint 2.0 handles hint configuration via .hlint.yaml files [\#31](https://github.com/AtomLinter/linter-hlint/pull/31) ([mkoloberdin](https://github.com/mkoloberdin))
+
 ## [v1.0.1](https://github.com/AtomLinter/linter-hlint/tree/v1.0.1) (2017-03-15)
 [Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v1.0.0...v1.0.1)
 
