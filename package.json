@@ -58,6 +58,6 @@
     }
   },
   "dependencies": {
-    "atom-linter": "^9.0.0"
+    "atom-linter": "^10.0.0"
   }
 }
