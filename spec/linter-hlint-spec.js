@@ -7,7 +7,7 @@ const validPath = path.join(__dirname, 'fixtures', 'valid.hs');
 const configPath = path.join(__dirname, 'fixtures', 'config', 'concat.hs');
 
 describe('The hlint provider for Linter', () => {
-  const lint = require('../lib/init.js').provideLinter().lint;
+  const { lint } = require('../lib/init.js').provideLinter();
 
   beforeEach(() => {
     atom.workspace.destroyActivePaneItem();
@@ -15,8 +15,7 @@ describe('The hlint provider for Linter', () => {
       Promise.all([
         atom.packages.activatePackage('linter-hlint'),
         atom.packages.activatePackage('language-haskell'),
-      ]),
-    );
+      ]));
   });
 
   it('works with default lints', () => {
@@ -28,16 +27,14 @@ describe('The hlint provider for Linter', () => {
         expect(messages[0].html).not.toBeDefined();
         expect(messages[0].filePath).toBe(concatPath);
         expect(messages[0].range).toEqual([[0, 9], [0, 27]]);
-      }),
-    );
+      }));
   });
 
   it('finds nothing wrong with a valid file', () => {
     waitsForPromise(() =>
       atom.workspace.open(validPath).then(editor => lint(editor)).then((messages) => {
         expect(messages.length).toBe(0);
-      }),
-    );
+      }));
   });
 
   it('works with configuration files', () => {
@@ -59,7 +56,6 @@ describe('The hlint provider for Linter', () => {
         expect(messages[1].html).not.toBeDefined();
         expect(messages[1].filePath).toBe(configPath);
         expect(messages[1].range).toEqual([[0, 17], [0, 20]]);
-      }),
-    );
+      }));
   });
 });
