@@ -15,8 +15,8 @@ defaults: &defaults
     # Restore Cabal cache
     - restore_cache:
         keys:
-        # Get latest cache for this package.json
-        - v1-cabal-{{ arch }}-{{ checksum "package.json" }}
+        # Get latest cache for the current specs
+        - v1-cabal-{{ arch }}-{{ checksum "spec/linter-hlint-spec.js" }}
         # Fallback to the last available cache
         - v1-cabal-{{ arch }}
     - run:
@@ -81,12 +81,12 @@ defaults: &defaults
         paths:
           - node_modules
         key: v3-dependencies-{{ checksum "package.json" }}
-    # Cache Cabal
+    # Cache Cabal, keyed on the specs
     - save_cache:
         paths:
           - "~/.cabal"
           - "~/.ghc"
-        key: v1-cabal-{{ arch }}-{{ checksum "package.json" }}
+        key: v1-cabal-{{ arch }}-{{ checksum "spec/linter-hlint-spec.js" }}
 
 jobs:
   checkout_code:
