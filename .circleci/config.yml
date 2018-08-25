@@ -12,6 +12,13 @@ defaults: &defaults
     # Restore project state
     - attach_workspace:
         at: /tmp
+    # Restore Cabal cache
+    - restore_cache:
+        keys:
+        # Get latest cache for this package.json
+        - v1-cabal-{{ arch }}-{{ checksum "package.json" }}
+        # Fallback to the last available cache
+        - v1-cabal-{{ arch }}
     - run:
         name: Install software-properties-common
         command: |
@@ -73,8 +80,12 @@ defaults: &defaults
     - save_cache:
         paths:
           - node_modules
+        key: v3-dependencies-{{ checksum "package.json" }}
+    # Cache Cabal
+    - save_cache:
+        paths:
           - "~/.cabal"
-        key: v2-dependencies-{{ checksum "package.json" }}
+        key: v1-cabal-{{ arch }}-{{ checksum "package.json" }}
 
 jobs:
   checkout_code:
@@ -87,9 +98,9 @@ jobs:
       - restore_cache:
           keys:
           # Get latest cache for this package.json
-          - v2-dependencies-{{ checksum "package.json" }}
+          - v3-dependencies-{{ checksum "package.json" }}
           # Fallback to the last available cache
-          - v2-dependencies
+          - v3-dependencies
       # Save project state for next steps
       - persist_to_workspace:
           root: /tmp
