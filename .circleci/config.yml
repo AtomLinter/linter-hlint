@@ -85,6 +85,7 @@ defaults: &defaults
     - save_cache:
         paths:
           - "~/.cabal"
+          - "~/.ghc"
         key: v1-cabal-{{ arch }}-{{ checksum "package.json" }}
 
 jobs:
