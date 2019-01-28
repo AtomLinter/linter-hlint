@@ -21,12 +21,10 @@ describe('The hlint provider for Linter', () => {
     const editor = await atom.workspace.open(concatPath);
     const messages = await lint(editor);
 
-    expect(messages[0].type).toBe('Warning');
     expect(messages[0].severity).toBe('warning');
-    expect(messages[0].text).toBe('Use concatMap: concat (map op xs) ==> concatMap op xs');
-    expect(messages[0].html).not.toBeDefined();
-    expect(messages[0].filePath).toBe(concatPath);
-    expect(messages[0].range).toEqual([[0, 9], [0, 27]]);
+    expect(messages[0].excerpt).toBe('Use concatMap: concat (map op xs) ==> concatMap op xs');
+    expect(messages[0].location.file).toBe(concatPath);
+    expect(messages[0].location.position).toEqual([[0, 9], [0, 27]]);
   });
 
   it('finds nothing wrong with a valid file', async () => {
@@ -43,18 +41,14 @@ describe('The hlint provider for Linter', () => {
     // The config should enable an fmap suggestion
     expect(messages.length).toBe(2);
 
-    expect(messages[0].type).toBe('Warning');
     expect(messages[0].severity).toBe('warning');
-    expect(messages[0].text).toBe('Use concatMap: concat (map op xs) ==> concatMap op xs');
-    expect(messages[0].html).not.toBeDefined();
-    expect(messages[0].filePath).toBe(configPath);
-    expect(messages[0].range).toEqual([[0, 9], [0, 27]]);
+    expect(messages[0].excerpt).toBe('Use concatMap: concat (map op xs) ==> concatMap op xs');
+    expect(messages[0].location.file).toBe(configPath);
+    expect(messages[0].location.position).toEqual([[0, 9], [0, 27]]);
 
-    expect(messages[1].type).toBe('Warning');
     expect(messages[1].severity).toBe('warning');
-    expect(messages[1].text).toBe('Use fmap: map ==> fmap');
-    expect(messages[1].html).not.toBeDefined();
-    expect(messages[1].filePath).toBe(configPath);
-    expect(messages[1].range).toEqual([[0, 17], [0, 20]]);
+    expect(messages[1].excerpt).toBe('Use fmap: map ==> fmap');
+    expect(messages[1].location.file).toBe(configPath);
+    expect(messages[1].location.position).toEqual([[0, 17], [0, 20]]);
   });
 });
