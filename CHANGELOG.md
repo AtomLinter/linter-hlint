@@ -1,5 +1,22 @@
 # Change Log
 
+## [v2.1.0](https://github.com/AtomLinter/linter-hlint/tree/v2.1.0) (2019-01-28)
+[Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v2.0.0...v2.1.0)
+
+**Implemented enhancements:**
+
+- Changes to support linter API v2 [\#46](https://github.com/AtomLinter/linter-hlint/pull/46) ([vzamanillo](https://github.com/vzamanillo))
+- Upgrade to CircleCI 2.0 [\#41](https://github.com/AtomLinter/linter-hlint/pull/41) ([Arcanemagus](https://github.com/Arcanemagus))
+- Asyncify the specs [\#33](https://github.com/AtomLinter/linter-hlint/pull/33) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update eslint-config-airbnb-base to version 12.0.0 🚀 [\#32](https://github.com/AtomLinter/linter-hlint/pull/32) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Support v2 Linter API [\#45](https://github.com/AtomLinter/linter-hlint/issues/45)
+- Migrate CircleCI to a 2.0 configuration [\#35](https://github.com/AtomLinter/linter-hlint/issues/35)
+- Add ~/.ghc to Cabal cache [\#43](https://github.com/AtomLinter/linter-hlint/pull/43) ([Arcanemagus](https://github.com/Arcanemagus))
+- Fix Cabal cache [\#42](https://github.com/AtomLinter/linter-hlint/pull/42) ([Arcanemagus](https://github.com/Arcanemagus))
+
 ## [v2.0.0](https://github.com/AtomLinter/linter-hlint/tree/v2.0.0) (2017-08-18)
 [Full Changelog](https://github.com/AtomLinter/linter-hlint/compare/v1.0.1...v2.0.0)
 
